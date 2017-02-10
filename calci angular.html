@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var app=angular.module("myapp",[]);
+var controller=function($scope)
+{
+
+$scope.add=function()
+{
+$scope.result=$scope.x+$scope.y
+};
+$scope.sub=function()
+{
+$scope.result=$scope.x-$scope.y
+};
+$scope.mul=function()
+{
+$scope.result=$scope.x*$scope.y
+};
+$scope.div=function()
+{
+$scope.result=$scope.x/$scope.y
+};
+
+$scope.clear=function()
+{
+$scope.x ="",
+$scope.y ="",
+$scope.result=""
+};
+
+};
+app.controller("myctrl",controller);
+</script>
+<body ng-app="myapp" ng-controller="myctrl">
+<div style="
+	height:150px;
+	width:50%;
+border:  solid black;
+float:left;
+margin-left:17%;padding:3%;
+background-color:grey
+">
+<input type="number" ng-model="x">
+<input type="number" ng-model="y"><br<br><br><br>
+<button ng-click="add()">add</button>
+<button ng-click="sub()">sub</button>
+<button ng-click="mul()">mul</button>
+<button ng-click="div()">div</button>
+<button ng-click="clear()">clear</button><br<br><br><br>
+Result:<h1 ng-bind="result"></h1>
+</div>
+</body>
+</html>
+
